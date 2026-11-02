@@ -43,7 +43,12 @@ std::string DecToBin(const std::string& input_dec) {
     return result;
     
 }
-int HexToDec(const std::string& input_hex);
+
+int HexToDec(const std::string& input_hex) {
+
+  
+  
+}
 std::string DecToHex(const std::string& input_dec);
 std::string BinToHex(const std::string& input_bin);
 std::string HexToBin(const std::string& input_hex);
