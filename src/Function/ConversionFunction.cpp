@@ -13,17 +13,12 @@ int BinToDec(const std::string& input_bin) {
     return r;
 }
 
+std::string DecToBin( int& input_dec) {
 
-std::string DecToBin(const std::string& input_dec) {
+    if ( input_dec == 0 ) { return "0"; }
 
-    if ( input_dec == "0" ) { return "0"; }
-
-    int dec;
+    int dec = input_dec;
     std::vector<int> remainder;
-
-    for ( char x : input_dec ) {
-        dec = dec + ( x - '0');
-    }
 
     while ( dec > 0 ) {
         remainder.push_back( dec % 2 );
@@ -87,9 +82,129 @@ int HexToDec(const std::string& input_hex) {
   
 }
 
-std::string DecToHex(const std::string& input_dec);
-std::string BinToHex(const std::string& input_bin);
-std::string HexToBin(const std::string& input_hex);
-int BinToOct(const std::string& input_bin);
-std::string OctToBin(const std::string& input_oct);
-int HexToOct(const std::string& input_hex);
+std::string DecToHex( int& input_dec) {
+
+    std::vector<int> remainders;
+
+    while ( input_dec > 0 ) {
+        remainders.push_back( input_dec % 16 );
+        input_dec = input_dec / 16;
+    }
+
+    std::reverse(remainders.begin(), remainders.end());
+
+    std::string result;
+
+    for ( int remainder : remainders) {
+
+        if ( remainder == 10 ) {
+            result += "A";
+        } else if ( remainder == 11 ) {
+            result += "B";
+        } else if ( remainder == 12 ) {
+            result +=  "C";
+        } else if ( remainder == 13 ) {
+            result += "D";
+        } else if ( remainder == 14 ) {
+            result += "E";
+        } else if ( remainder == 15 ) {
+            result += "F";
+        } else {
+            std::string x = std::to_string(remainder);
+            result += x;
+        }
+    }
+
+    return result;
+
+}
+
+std::string DecToOct( int& input_dec) {
+
+    if ( input_dec == 0 ) { return "0"; }
+
+    int dec = input_dec;
+    std::vector<int> remainder;
+
+    while ( dec > 0 ) {
+        remainder.push_back( dec % 8 );
+        dec = dec / 8;
+    }
+
+    std::reverse(remainder.begin(), remainder.end());
+
+    std::string result;
+
+    for ( int bit : remainder ) {
+        char oct = bit + '0';
+
+        result += oct;
+    }
+
+    return result;
+
+}
+
+int OctToDec( std::string& input_oct) {
+
+
+    std::string oct = input_oct;
+
+    std::reverse(oct.begin(), oct.end());
+
+    std::vector<int> multiple;
+    int row = 0;
+
+    for ( char bit : oct ) {
+        bit = bit - '0';
+
+        multiple.push_back( bit * pow(8, row));
+
+        ++row;
+    }
+
+    int result;
+
+    for (int x : multiple ) {
+        result = result + x;
+    }
+
+    return result;
+}
+
+std::string BinToHex(const std::string& input_bin) {
+
+    int dec = BinToDec(input_bin);
+    std::string hex = DecToHex(dec);
+    return hex;
+}
+
+std::string HexToBin(const std::string& input_hex) {
+
+    int dec = HexToDec(input_hex);
+    std::string bin = DecToBin(dec);
+    return bin;
+
+}
+
+std::string BinToOct(const std::string& input_bin) {
+
+    int dec = BinToDec(input_bin);
+    std::string oct = DecToOct(dec);
+    return oct;
+
+}
+
+std::string OctToBin( std::string& input_oct) {
+
+    int dec = OctToDec(input_oct);
+    std::string bin = DecToBin(dec);
+    return bin;
+}
+
+std::string HexToOct( std::string& input_hex) {
+
+    int dec = HexToDec(input_hex);
+    std::string oct = DecToOct(dec);
+    return oct;
+}
