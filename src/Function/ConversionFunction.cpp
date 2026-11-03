@@ -1,4 +1,4 @@
-#include "CommonInclude.hpp"
+#include "../include/CommonInclude.hpp"
 
 int BinToDec(const std::string& input_bin) {
 

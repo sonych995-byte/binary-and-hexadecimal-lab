@@ -1,9 +1,9 @@
 #include "src/include/CommonInclude.hpp"
+#include "src/Function/ConversionFunction.cpp"
 
 void clear() {
     system("clear");
 }
-
 
 void UI() {
 
@@ -45,7 +45,7 @@ void ConversionSubUI() {
 int main() {
     
     while (true) {
-
+        clear();
         UI();
         std::string mode;
         std::cout << "Enter mode: ";
@@ -57,8 +57,25 @@ int main() {
 
             std::string ConversionMode;
             std::cout << "Enter conversionmode: ";
+            std::cin >> ConversionMode;
 
-            if ( ConversionMode == "1" )
+            if ( ConversionMode == "1" ) {
+                clear;
+                ConversionSubUI;
+
+                std::string input_bin;
+                std::cout << "Enter binary: ";
+                std::cin >> input_bin;
+
+                int result = BinToDec(input_bin);
+
+                std::cout << "\nResult: " << std::to_string(result);
+
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::cin.get();
+
+            }
         }
 
     }
