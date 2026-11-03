@@ -7,3 +7,4 @@
 #include <cstdlib>
 #include <cmath>
 #include <algorithm> 
+#include <ranges>
