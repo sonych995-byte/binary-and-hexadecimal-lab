@@ -83,7 +83,9 @@ int main() {
                 std::cout << "Enter decimal: ";
                 std::cin >> input_dec;
 
-                std::string result = DecToBin(std::stoi(input_dec));
+                int dec = std::stoi(input_dec);
+
+                std::string result = DecToBin(dec;
 
                 std::cout << "\nResult: " << result;
 
@@ -113,7 +115,9 @@ int main() {
                 std::cout << "Enter decimal: ";
                 std::cin >> input_dec;
 
-                std::string result = DecToHex(std::stoi(input_dec));
+                int dec = std::stoi(input_dec);
+
+                std::string result = DecToHex(dec);
 
                 std::cout << "\nResult: " << result;
 
@@ -128,13 +132,20 @@ int main() {
                 std::cout << "Enter binary: ";
                 std::cin >> input_bin;
 
-                std::string result = BinToHex(input_bin;
+                std::string result = BinToHex(input_bin);
 
                 std::cout << "\nResult: " << result;
 
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
                 std::cin.get();
+
+            } else {
+              std::cout << "Unknow mode";
+              std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::cin.get();
+            }
         }
 
     }
