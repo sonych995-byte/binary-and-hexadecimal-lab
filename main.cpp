@@ -85,7 +85,7 @@ int main() {
 
                 int dec = std::stoi(input_dec);
 
-                std::string result = DecToBin(dec;
+                std::string result = DecToBin(dec);
 
                 std::cout << "\nResult: " << result;
 
