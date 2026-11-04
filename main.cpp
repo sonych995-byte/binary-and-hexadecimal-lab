@@ -75,7 +75,66 @@ int main() {
 
                 std::cin.get();
 
-            }
+            } else if ( ConversionMode == "2" ) {
+                clear;
+                ConversionSubUI;
+
+                std::string input_dec;
+                std::cout << "Enter decimal: ";
+                std::cin >> input_dec;
+
+                std::string result = DecToBin(std::stoi(input_dec));
+
+                std::cout << "\nResult: " << result;
+
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::cin.get();
+            } else if ( ConversionMode == "3" ) {
+                clear;
+                ConversionSubUI;
+
+                std::string input_hex;
+                std::cout << "Enter hexadecimal: ";
+                std::cin >> input_hex;
+
+                int result = HexToDec(input_hex);
+
+                std::cout << "\nResult: " << std::to_string(result);
+
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::cin.get();
+            } else if ( ConversionMode == "4" ) {
+                clear;
+                ConversionSubUI;
+
+                std::string input_dec;
+                std::cout << "Enter decimal: ";
+                std::cin >> input_dec;
+
+                std::string result = DecToHex(std::stoi(input_dec));
+
+                std::cout << "\nResult: " << result;
+
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::cin.get();
+            } else if ( ConversionMode == "5" ) {
+                clear;
+                ConversionSubUI;
+
+                std::string input_bin;
+                std::cout << "Enter binary: ";
+                std::cin >> input_bin;
+
+                std::string result = BinToHex(input_bin;
+
+                std::cout << "\nResult: " << result;
+
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                std::cin.get();
         }
 
     }
